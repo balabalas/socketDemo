@@ -2,16 +2,18 @@
 a test demo for socket.io
    
 ### Test1
-__at branch test1__   
-socket.io at single namespace.
+socket.io at single namespace.   
+__at branch test1__  socket.io listen at `/` namespace.   
+__at branch test4__  socket.io listen at `/user` namespace.   
 
    
 ### Test2
-__at branch test2__   
-socket.io at multi namespaces.
+socket.io at multi namespaces.   
+__at branch test2__  socket.io listen at `/` and `/user`.   
+__at branch test5__  socket.io listen at `/foo` and `/bar`.   
 
    
 ### Test3
-__at branch test3__   
-socket.io at different client.
+socket.io at different client.   
+__at branch test3__  socket.io listen at `/`. 
 
