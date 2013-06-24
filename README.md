@@ -1,5 +1,6 @@
 #Socket.IO Demo
-a test demo for socket.io
+a test demo for socket.io   
+About [issues](./issues/)
    
 ### Test1
 socket.io at single namespace.   
