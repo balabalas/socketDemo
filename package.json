@@ -1,13 +1,20 @@
 {
-  "name": "application-name",
+  "name": "socketTest",
+  "description": "test socket.io at different envs.",
   "version": "0.0.1",
+  "author": "Allen Heavey",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com/xionglun/socketDemo.git"
+  },
   "private": true,
   "scripts": {
     "start": "node app.js"
   },
   "dependencies": {
     "express": "3.2.6",
-    "jade": "*"
+    "jade": "*",
+    "socket.io": "*"
   },
   "devDependencies": {
     "grunt":"~0.4",
