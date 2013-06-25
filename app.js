@@ -10,6 +10,10 @@ var io = require('socket.io');
 var path = require('path');
 
 var app = express();
+var server = http.createServer(app);
+
+// io
+io = io.listen(server);
 
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -30,6 +34,16 @@ if ('development' == app.get('env')) {
 routes(app);
 // app.get('/', routes.index);
 
-http.createServer(app).listen(app.get('port'), function(){
+server.listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
+
+var cid = 0; // client id.
+
+io.sockets.on('connection', function(socket){
+  socket.emit('id', cid++);
+  socket.on('cb', function(data){
+    console.log('At callback!');
+  });
+});
+
