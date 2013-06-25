@@ -9,5 +9,5 @@ var index = function(req, res){
 
 module.exports = function(app){
   app.get('/', index);
-}
+};
 

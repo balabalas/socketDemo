@@ -40,6 +40,9 @@ server.listen(app.get('port'), function(){
 
 var cid = 0; // client id.
 
+io.set('log level', 2);
+io.enable('gzip');
+
 io.sockets.on('connection', function(socket){
   socket.emit('id', cid++);
   socket.on('cb', function(data){
