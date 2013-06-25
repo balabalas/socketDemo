@@ -47,6 +47,7 @@ io.sockets.on('connection', function(socket){
   socket.emit('id', cid++);
   socket.on('cb', function(data){
     console.log('At callback!');
+    socket.emit('push', 'push data!');
   });
 });
 
