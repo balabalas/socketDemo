@@ -43,7 +43,7 @@ var cid = 0; // client id.
 io.set('log level', 2);
 io.enable('gzip');
 
-io.sockets.on('connection', function(socket){
+io.sockets.of('/user').on('connection', function(socket){
   socket.emit('id', cid++);
   socket.on('cb', function(data){
     console.log('At callback!');
