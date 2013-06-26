@@ -51,6 +51,11 @@ io.sockets.on('connection', function(socket){
     socket.emit('push', 'push data!');
   });
 
+  socket.on('myName', function(data){
+    console.log('new user login: ' + data);
+    socket.broadcast.emit('updateNameList', data);
+  });
+
   socket.on('disconnect', function(){
     console.log('disconnect to client at ' + tmpId);
   });
