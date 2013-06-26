@@ -44,10 +44,16 @@ io.set('log level', 2);
 io.enable('gzip');
 
 io.sockets.on('connection', function(socket){
+  var tmpId = cid;  // here can store info. eg. will not be cover by next id.
   socket.emit('id', cid++);
   socket.on('cb', function(data){
     console.log('At callback!');
     socket.emit('push', 'push data!');
   });
+
+  socket.on('disconnect', function(){
+    console.log('disconnect to client at ' + tmpId);
+  });
 });
+
 
