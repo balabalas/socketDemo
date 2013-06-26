@@ -6,7 +6,8 @@
 
 (function(){
   
-  var socket = io.connect('http://localhost:3000/');
+  var socket = io.connect('http://localhost:3000/user');
+//  var userSock = io.connect('http://localhost:3000/user');
 
   // get message box.
   var msgBox = document.getElementById('msgBox');
