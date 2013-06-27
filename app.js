@@ -56,6 +56,11 @@ io.sockets.on('connection', function(socket){
     socket.broadcast.emit('updateNameList', data);
   });
 
+  socket.on('msg', function(msg){
+    //socket.volatile.emit('updateMsg', msg);
+    io.sockets.volatile.emit('updateMsg', msg);
+  });
+
   socket.on('disconnect', function(){
     console.log('disconnect to client at ' + tmpId);
   });

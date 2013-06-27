@@ -10,11 +10,18 @@
 
   // send username to server
   var subBtn = document.getElementById('sub2server');
+  var msgBtn = document.getElementById('msg2server');
   var theName = document.getElementById('username');
+  var msgValue = document.getElementById('message');
 
   subBtn.addEventListener('click', function(){
     var vname = theName.value;
     if(vname) sendName2server(vname);
+  });
+
+  msgBtn.addEventListener('click', function(){
+    var vmsg = msgValue.value;
+    if(vmsg) sendMsg(vmsg);
   });
 
   function sendName2server(name){
@@ -22,6 +29,16 @@
       console.log(arguments.length);
     });
   }
+
+  function sendMsg(msg){
+    socket.emit('msg', msg, function(){
+      console.log('send msg success! --> ' + msg);
+    });
+  }
+
+  socket.on('updateMsg', function(msg){
+    logMsg('Message: ' + msg);
+  });
 
   socket.on('updateNameList', function(name){
     logMsg(name);
