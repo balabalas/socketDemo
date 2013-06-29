@@ -18,3 +18,7 @@ __at branch test5__  socket.io listen at `/foo` and `/bar`.
 socket.io at different client.   
 __at branch test3__  socket.io listen at `/`. 
 
+   
+### Test4
+socket.io Messages
+__at branch test6__ socket.io messages
