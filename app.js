@@ -45,25 +45,13 @@ io.enable('gzip');
 
 io.sockets.on('connection', function(socket){
   var tmpId = cid;  // here can store info. eg. will not be cover by next id.
-  socket.emit('id', cid++);
-  socket.on('cb', function(data){
-    console.log('At callback!');
-    socket.emit('push', 'push data!');
-  });
 
-  socket.on('myName', function(data){
-    console.log('new user login: ' + data);
-    socket.broadcast.emit('updateNameList', data);
-  });
+  socket.join('red blue white black');
 
-  socket.on('msg', function(msg){
-    //socket.volatile.emit('updateMsg', msg);
-    io.sockets.volatile.emit('updateMsg', msg);
-  });
+  socket.broadcast.to('red blue').emit('colorful');
 
-  socket.on('disconnect', function(){
-    console.log('disconnect to client at ' + tmpId);
-  });
+  io.sockets.in('white black').emit('blank');
+
 });
 
 
