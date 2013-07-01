@@ -20,5 +20,10 @@ __at branch test3__  socket.io listen at `/`.
 
    
 ### Test4
-socket.io Messages
+socket.io Messages   
 __at branch test6__ socket.io messages
+
+### Test5
+socket.io rooms   
+__at branch test7__ different rooms test.
+
