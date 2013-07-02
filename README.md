@@ -1,5 +1,7 @@
 #Socket.IO Demo
 a test demo for socket.io   
+use room and broadcast for mobile users.   
+
 About [issues](./issues/)
    
 ### Test1
