@@ -6,6 +6,7 @@
 var express = require('express');
 var routes = require('./routes');
 var http = require('http');
+var controller = require('./routes/controller');
 var io = require('socket.io');
 var path = require('path');
 
@@ -14,6 +15,9 @@ var server = http.createServer(app);
 
 // io
 io = io.listen(server);
+
+// set io for controller
+controller.set(io);
 
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -31,7 +35,9 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
+// route app
 routes(app);
+
 // app.get('/', routes.index);
 
 server.listen(app.get('port'), function(){

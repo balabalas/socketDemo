@@ -1,0 +1,19 @@
+extends layout
+
+
+block content
+    #page
+      #mainPage
+        .msgDiv
+          textarea#bigMsg(name='msg2server', cols='30', rows='10')
+        .msgDiv
+          select#roomId(name='room')
+            option(value='all') All
+            option(value='one') One
+            option(value='two') Two
+            option(value='three') Three
+          input#send2server(type='button', value='submit')
+
+block script
+  script(type="text/javascript",src="/socket.io/socket.io.js")
+  script(src="/js/adminSocket.js", type="text/javascript")

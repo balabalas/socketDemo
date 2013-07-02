@@ -9,12 +9,15 @@ module.exports = function(grunt){
           module: true
         }
       }
-    }
+    },
+    clean: ['test/web/admin.jade']
   });
 
   grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-contrib-clean');
 
   grunt.registerTask('test', ['jshint']);
+  grunt.registerTask('default', ['jshint', 'clean']);
 
 };
 
