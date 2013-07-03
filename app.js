@@ -17,7 +17,7 @@ var server = http.createServer(app);
 io = io.listen(server);
 
 // set io for controller
-controller.set(io);
+//controller.set(io);
 
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -48,6 +48,10 @@ var cid = 0; // client id.
 
 io.set('log level', 2);
 io.enable('gzip');
+
+io.of('/admin').on('connection', function(socket){
+  console.log('/app.js /admin connect.');
+});
 
 io.sockets.on('connection', function(socket){
   var tmpId = cid;  // here can store info. eg. will not be cover by next id.

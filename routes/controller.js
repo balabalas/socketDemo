@@ -6,8 +6,8 @@
 var sockets = null;
 
 exports.set = function(io){
-  sockets = io.sockets;
-  global.sockets = io.sockets;
+  sockets = io.of('/amdin');
+  global.sockets = io.of('/admin');
 };
 
 exports.get = function(){

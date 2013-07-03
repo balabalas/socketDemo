@@ -1,0 +1,13 @@
+
+
+#listBox {
+    width: 100%;
+    min-height: 200px;
+    border: 1px solid #abc;
+}
+
+#msgList {
+    width: 100%;
+    height: auto;
+}
+
