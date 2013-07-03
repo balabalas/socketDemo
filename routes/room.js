@@ -3,7 +3,7 @@
  ***/
 
 exports.handler = function(req, res){
-  res.render();
+  res.render('room');
 };
 
 

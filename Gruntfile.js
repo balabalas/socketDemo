@@ -10,7 +10,7 @@ module.exports = function(grunt){
         }
       }
     },
-    clean: ['test/web/admin.jade']
+    clean: ['test/web/*.jade']
   });
 
   grunt.loadNpmTasks('grunt-contrib-jshint');

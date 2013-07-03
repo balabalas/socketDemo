@@ -11,3 +11,15 @@
     height: auto;
 }
 
+.msgInput {
+    height: 2em;
+    line-height: 1.4;
+}
+
+#msgTextBox {
+    width: 20em;
+    max-width: 85%;
+    height: auto;
+}
+
+
