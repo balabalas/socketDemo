@@ -13,10 +13,12 @@
   var msgValue = msgBox.value;
   
   // sockets
-  var socket = io.connect('http://localhost/room');
+  var socket = io.connect('http://localhost:8118/room');
 
 
-
+  socket.on('connect', function(){
+    console.log('we are in the room!');
+  });
 
 
 
