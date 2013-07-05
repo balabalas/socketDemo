@@ -6,12 +6,13 @@
 var express = require('express');
 var routes = require('./routes');
 var http = require('http');
-var controller = require('./routes/controller');
+//var controller = require('./routes/controller');
 var io = require('socket.io');
 var path = require('path');
 
 var app = express();
 var server = http.createServer(app);
+var IOEngine = require('./lib/socket');
 
 // io
 io = io.listen(server);
@@ -20,7 +21,7 @@ io = io.listen(server);
 //controller.set(io);
 
 // all environments
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 8118);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 app.use(express.favicon());
@@ -49,31 +50,33 @@ var cid = 0; // client id.
 io.set('log level', 2);
 io.enable('gzip');
 
-io.of('/admin').on('connection', function(socket){
-  console.log('/app.js /admin connect.');
-});
+IOEngine(io);
 
-io.sockets.on('connection', function(socket){
-  var tmpId = cid;  // here can store info. eg. will not be cover by next id.
-  socket.emit('id', cid++);
-  socket.on('cb', function(data){
-    console.log('At callback!');
-    socket.emit('push', 'push data!');
-  });
+// io.of('/admin').on('connection', function(socket){
+//   console.log('/app.js /admin connect.');
+// });
 
-  socket.on('myName', function(data){
-    console.log('new user login: ' + data);
-    socket.broadcast.emit('updateNameList', data);
-  });
-
-  socket.on('msg', function(msg){
-    //socket.volatile.emit('updateMsg', msg);
-    io.sockets.volatile.emit('updateMsg', msg);
-  });
-
-  socket.on('disconnect', function(){
-    console.log('disconnect to client at ' + tmpId);
-  });
-});
+// io.sockets.on('connection', function(socket){
+  // var tmpId = cid;  // here can store info. eg. will not be cover by next id.
+  // socket.emit('id', cid++);
+  // socket.on('cb', function(data){
+    // console.log('At callback!');
+    // socket.emit('push', 'push data!');
+  // });
+// 
+  // socket.on('myName', function(data){
+    // console.log('new user login: ' + data);
+    // socket.broadcast.emit('updateNameList', data);
+  // });
+// 
+  // socket.on('msg', function(msg){
+    // //socket.volatile.emit('updateMsg', msg);
+    // io.sockets.volatile.emit('updateMsg', msg);
+  // });
+// 
+  // socket.on('disconnect', function(){
+    // console.log('disconnect to client at ' + tmpId);
+  // });
+// });
 
 

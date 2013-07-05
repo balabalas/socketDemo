@@ -1,22 +1,20 @@
 extends layout
 
 block style
-    link(rel='stylesheet', href='css/base.css')
-    link(rel='stylesheet', href='css/room.css')
+  link(rel='stylesheet', href='css/base.css')
+  link(rel='stylesheet', href='css/room.css')
 
 block content
-    #page
-      #mainPart
-        section#listBox
-          ul#msgList
-            li
-              span Hello
-            li
-              span world
-            li
-              span Allen
-        section.msgSender
-          input#msgTextBox.msgInput(type='text', name='sender')
-          input#sendMsg.msgInput(type='button', name='sendBtn', value='Send')
+  #page
+    #mainPart
+      section#listBox
+        ul#msgList
+
+      section.msgSender
+        input#msgTextBox.msgInput(type='text', name='sender')
+        input#sendMsg.msgInput(type='button', name='sendBtn', value='Send')
 
 
+block script
+  script(type="text/javascript",src="/socket.io/socket.io.js")
+  script(type="text/javascript",src="/js/room.js")

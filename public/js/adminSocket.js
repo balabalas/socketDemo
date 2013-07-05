@@ -5,33 +5,43 @@
 
 (function(){
   
-  var socket = io.connect('http://localhost:3000/admin/');
+  var adm = io.connect('http://localhost:8118/admin');
 
-  socket.on('connect', function(){
-    console.log("Hello amdin client");
+  adm.on('connect', function(){
+    console.log('connect ok');
   });
 
-  socket.emit('cb', 'callback');
-
-  socket.on('id', function(data){
+  adm.on('one', function(data){
     console.log(data);
-    alert('id');
   });
 
-  var bufferBox = document.getElementById('bigMsg');
-  var roomSelector = document.getElementById('roomId');
-  var sendBtn = document.getElementById('send2server');
 
 
-  var bufferMsg = bufferBox.value;
-  var roomNum = roomSelector.value;
+  // socket.on('connect', function(){
+  //   console.log("Hello amdin client");
+  // });
+
+  // socket.emit('cb', 'callback');
+
+  // socket.on('id', function(data){
+  //   console.log(data);
+  //   alert('id');
+  // });
+
+  // var bufferBox = document.getElementById('bigMsg');
+  // var roomSelector = document.getElementById('roomId');
+  // var sendBtn = document.getElementById('send2server');
 
 
-  sendBtn.addEventListener('click', send2server);
+  // var bufferMsg = bufferBox.value;
+  // var roomNum = roomSelector.value;
 
-  function send2server(msg){
-    socket.emit('bigmsg', {"value": bufferMsg});
-  }
+
+  // sendBtn.addEventListener('click', send2server);
+
+  // function send2server(msg){
+  //   socket.emit('bigmsg', {"value": bufferMsg});
+  // }
 
 
 })();

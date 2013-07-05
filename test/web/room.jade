@@ -1,0 +1,21 @@
+!!! 5
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    title room
+    link(rel='stylesheet', href='css/base.css')
+    link(rel='stylesheet', href='css/room.css')
+  body
+    #page
+      #mainPart
+        section#listBox
+          ul#msgList
+            li
+              span Hello
+            li
+              span world
+            li
+              span Allen
+        section.msgSender
+          input#msgTextBox.msgInput(type='text', name='sender')
+          input#sendMsg.msgInput(type='button', name='sendBtn', value='Send')
