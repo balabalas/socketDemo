@@ -20,9 +20,14 @@
     console.log('we are in the room!');
   });
 
+  socket.on('c_welcome', function(msg){
+    console.log(msg);
+    socket.emit('c_cb', {"callback": "this is client callback!"});
+  });
 
-
-
+  socket.on('c_smsg', function(msg){
+    console.log(msg);
+  });
 
 })();
 
