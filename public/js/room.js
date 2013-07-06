@@ -23,12 +23,13 @@
   var socket = io.connect('http://10.2.138.164:8118/room');
 
   socket.on('connect', function(){
-    // console.log('we are in the room!');
+    console.log('we are in the room!');
+    // socket.emit('c_cb', {"roomID": roomSpec})
   });
 
   socket.on('c_welcome', function(msg){
     // console.log(msg);
-    socket.emit('c_cb', {"callback": "this is client callback!"});
+    socket.emit('c_cb', {"roomID": roomSpec});
   });
 
   socket.on('c_smsg', function(msg){
@@ -49,6 +50,8 @@
     res.roomID = roomSpec;
     res.message = msgBox.value;
     res.date = new Date();
+
+    msgBox.value = '';
 
     socket.emit('c_cmsg', res);
   });
