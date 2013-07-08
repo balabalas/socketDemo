@@ -8,7 +8,8 @@
 
   // Get pathname for different room ID
   var routes = window.location.pathname;
-  var roomSpec = routes.replace('/room/', '').trim();
+  // filter 'room' at routes.
+  var roomSpec = routes.trim().split('/').slice(1).join(' ');
 
   var msgBox = document.getElementById('msgTextBox');
   var msgBtn = document.getElementById('sendMsg');
@@ -44,6 +45,7 @@
     msgList.appendChild(li);
   });
 
+  // when click message send button. send rooms, date and message.
   msgBtn.addEventListener('click', function(e){
     var res = {};
 
