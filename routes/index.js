@@ -14,5 +14,5 @@ module.exports = function(app){
   app.get('/', index);
   app.get('/admin', admin.handler);
   app.get('/room/*?', room.handler);
-}
+};
 
