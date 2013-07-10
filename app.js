@@ -17,9 +17,6 @@ var IOEngine = require('./lib/socket');
 // io
 io = io.listen(server);
 
-// set io for controller
-//controller.set(io);
-
 // all environments
 app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/views');
