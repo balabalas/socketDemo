@@ -20,7 +20,9 @@
     "grunt":"~0.4",
     "mocha": "*",
     "should":"*",
+    "benchmark":"~1.0.0",
     "grunt-contrib-jshint":"*",
-    "grunt-contrib-clean": "*"
+    "grunt-contrib-clean": "*",
+    "grunt-benchmark": "*"
   }
 }
