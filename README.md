@@ -1,3 +1,6 @@
+# Deprecated
+This repo is just a lite test. so i deprecate it now. 7/19/3013
+
 #Socket.IO Demo
 a test demo for socket.io   
 use room and broadcast for mobile users.   
